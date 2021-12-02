@@ -1,5 +1,7 @@
 // Call the dataTables jQuery plugin
+
 $(document).ready(function () {
+  $("#dataTable").DataTable().destroy();
   $("#dataTable").DataTable({
     language: {
       lengthMenu: "Mostrar _MENU_ registros",

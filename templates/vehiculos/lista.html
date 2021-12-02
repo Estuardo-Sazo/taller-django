@@ -1,7 +1,7 @@
 {% extends "base2.html" %}
 
 {% block head_content %}
-    <title>Work Orders - Clientes</title>
+    <title>Work Orders - Vehiculos</title>
 {% endblock %}
 
 {% block container %}
@@ -14,14 +14,14 @@
             <div class="row">
                 <div class="col">
 
-                    <h4 class="m-0 font-weight-bold text-primary">Lista de Clientes</h4>
+                    <h4 class="m-0 font-weight-bold text-primary">Lista de Vehiculos </h4>
                 </div>
                 <div class="col">                    
                     <a href="{%url 'nuevo_cliente'%}" class="btn btn-success btn-icon-split float-right">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="text">Nuevo Cliente</span>
+                        <span class="text">Nuevo Vehiculo</span>
                     </a>
                 </div>
             </div>
@@ -31,38 +31,39 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">Placa</th>
 
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Telefono</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Linea</th>
+                            <th scope="col">No. Chasis</th>
                             <th scope="col">Acciones</th>
                           </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th scope="col">#</th>
-                            
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Telefono</th>
+                            <th scope="col">Placa</th>
+
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Linea</th>
+                            <th scope="col">No. Chasis</th>
                             <th scope="col">Acciones</th>
                           </tr>
                     </tfoot>
                     <tbody>
-
-                        {% for c in clientes %}
-                        
+                        {{vehiculos}}
+                        {% for v in vehiculos %}
+                        {{v}}
                         <tr>
-                          <th scope="row">{{c.id}}</th>
-                          <td>{{c.nombre}} </td>
-                          <td>{{c.apellido}}</td>
-                          <td>{{c.correo}}</td>
-                          <td>{{c.telefono}}</td>
+                          <th scope="row">{{v.id}}</th>
+                          <td>{{v.modelo}} </td>
+
+                          <td>{{v.color}} </td>
+                          <td>{{v.linea}}</td>
+                          <td>{{v.chasis}}</td>
                           <td>
-                            <a href="{%url 'clientes_vehiculos' c.id%}" class="btn btn-success btn-circle btn-sm">
+                            <a href="#" class="btn btn-success btn-circle btn-sm">
                                 <i class="fas fa-eye"></i>
                             </a>
                             <a href="#" class="btn btn-info btn-circle btn-sm">

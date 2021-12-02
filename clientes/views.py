@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
-from .forms import ClienteForm
-from .models import Cliente
+from clientes.forms import ClienteForm
+from clientes.models import Cliente
 
 def list_clientes(requets):
     clientes =Cliente.objects.all()
