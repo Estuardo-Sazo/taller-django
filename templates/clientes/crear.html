@@ -1,0 +1,59 @@
+{% extends "base2.html" %}
+
+{% block head_content %}
+    <title>Work Orders - Clientes</title>
+{% endblock %}
+
+{% block container %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col">
+
+                    <h4 class="m-0 font-weight-bold text-primary">Nuevo CLiente</h4>
+                </div>
+                <div class="col">                    
+                    <a href="{%url 'clientes'%}" class="btn btn-warning btn-icon-split float-right">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text">Volver</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form  method="post">
+                        {% csrf_token%}
+                        {% for campo in formulario %}
+                          <div class="mb-3">
+                            <label for="{{campo.name}}" class="form-label">{{campo.label}}:</label>
+                                                        
+                            <input type="{{campo.field.widget.input_type}}"
+                              class="form-control" name="{{campo.name}}" id="nombre" aria-describedby="helpId" placeholder="{{campo.label}}"
+                              value="{{campo.value | default:''}}"
+                              >
+                          </div>
+                          <div class="col-12 help-text">
+                            {{campo.errors}}
+                          </div>
+                          {% endfor%}
+                      
+                          <input name="" id="" class="btn btn-success" type="submit" value="Registrar Usuario">
+                          <a name="" id="" class="btn btn-warning" href="{%url 'clientes'%}" role="button">Cancelar</a>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}

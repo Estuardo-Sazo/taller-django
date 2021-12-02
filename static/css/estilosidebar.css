@@ -1,0 +1,59 @@
+:root{
+    --primary: #090c3a;
+    --Light: #ffffff;
+    --blue: #01397a;
+    --grey: #efefef;
+    --nar: #f27c00;
+}
+
+body {
+    overflow: hiden;
+    font-family: 'Multi', sans-serif;
+    font-weight: 300;
+    color: var(--primary);
+    /*background-image: url(../img/fondo.jpg);*/
+    background-color: rgb(212, 212, 212);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+
+.bg-primary {background-color: var(--primary) !important;}
+.bg-light {background-color: var(--blue) !important;}
+.bg-warning {background-color: var(--nar) !important;}
+
+#sidebar-container {
+    min-height: 100vh;
+}
+
+#sidebar-container .logo{
+    padding: .875rem 1.25rem;
+}
+
+#sidebar-container .menu{
+    width:18rem;
+}
+
+#content {
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 5rem;
+}
+
+.borde{
+    background: rgba(255, 253, 253, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+    color: white;
+}
+
+.pos{
+    padding:5px;
+}
+
+.table-striped{
+    color:#000000;
+}

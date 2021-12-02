@@ -1,0 +1,58 @@
+body {
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.formulario{
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    color: white;
+
+}
+
+.ingresar {
+    background: #222A3F;
+    padding: 10px;
+    font-size:16px;
+    font-weight: 700!important;
+    color: white;
+}
+.ingresar:hover{
+    background: #364e8b;
+    padding: 10px;
+    font-size:16px;
+    font-weight: 700!important;
+    color: white;
+}
+
+
+.olvide{
+    color:white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+
+}
+.olvide:hover{
+    color:crimson;
+    text-decoration-style: none;
+    text-decoration-line: none;
+}
+
+.registro{
+    color:white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    font-size:20px;
+    font-weight: 700!important;
+    border: 2px solid white;
+    padding: 10px;
+}
+.registro:hover{
+    color:crimson;
+    text-decoration-style: none;
+    text-decoration-line: none;
+}
