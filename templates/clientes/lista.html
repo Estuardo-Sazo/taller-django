@@ -55,11 +55,11 @@
 
                         {% for c in clientes %}
                         <tr>
-                          <th scope="row">{{c}}</th>
-                          <td>Mario </td>
-                          <td>Perez</td>
-                          <td>mariop.3@gmail.com</td>
-                          <td>65545995</td>
+                          <th scope="row">{{c.id}}</th>
+                          <td>{{c.nombre}} </td>
+                          <td>{{c.apellido}}</td>
+                          <td>{{c.correo}}</td>
+                          <td>{{c.telefono}}</td>
                           <td>
                             <a href="#" class="btn btn-success btn-circle btn-sm">
                                 <i class="fas fa-eye"></i>
