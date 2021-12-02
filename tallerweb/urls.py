@@ -8,7 +8,8 @@ from tallerweb import views as local_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',local_views.inicio ,name='inicio'),
+    path('',local_views.login ,name='login'),
+    path('inicio/',local_views.inicio ,name='inicio'),
     path('clientes/',clientes_views.list_clientes ,name='clientes'),
     path('clientes/nuevo',clientes_views.nuevo_cliente ,name='nuevo_cliente'),
 
