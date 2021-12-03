@@ -5,7 +5,7 @@ from clientes.models import Cliente
 # Create your vie ws here.
 def list_vehiculos_clientes(requets,id):
     cliente = Cliente.objects.get(id=id)
-    vehiculos  =Vehiculo.objects.values_list('id', 'placa','modelo','color','linea','chasis').filter(cliente_id=id)
+    vehiculos  =Vehiculo.objects.filter(cliente_id=id)
     print(vehiculos)
     return render(
         request=requets,
