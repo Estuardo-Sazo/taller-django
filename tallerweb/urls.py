@@ -13,6 +13,8 @@ urlpatterns = [
     path('inicio/',local_views.inicio ,name='inicio'),
     path('clientes/',clientes_views.list_clientes ,name='clientes'),
     path('vehiculos/<int:id>',vehiculos_views.list_vehiculos_clientes ,name='clientes_vehiculos'),
+    path('crear-vehiculos/<int:idCliente>',vehiculos_views.nuevo_vehiculo ,name='crear_vehiculo'),
+    
 
     path('clientes/nuevo',clientes_views.nuevo_cliente ,name='nuevo_cliente'),
 

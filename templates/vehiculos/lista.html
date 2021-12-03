@@ -14,10 +14,10 @@
             <div class="row">
                 <div class="col">
 
-                    <h4 class="m-0 font-weight-bold text-primary">Lista de Vehiculos </h4>
+                    <h4 class="m-0 font-weight-bold text-primary">Lista de Vehiculos de {{cliente.nombre}} {{cliente.apellido}} </h4>
                 </div>
                 <div class="col">                    
-                    <a href="{%url 'nuevo_cliente'%}" class="btn btn-success btn-icon-split float-right">
+                    <a href="{%url 'crear_vehiculo' cliente.id %}" class="btn btn-success btn-icon-split float-right">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -52,11 +52,10 @@
                           </tr>
                     </tfoot>
                     <tbody>
-                        {{vehiculos}}
+                        
                         {% for v in vehiculos %}
-                        {{v}}
                         <tr>
-                          <th scope="row">{{v.id}}</th>
+                          <th scope="row">{{v.placa}}</th>
                           <td>{{v.modelo}} </td>
 
                           <td>{{v.color}} </td>
