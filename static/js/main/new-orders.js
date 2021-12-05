@@ -1,5 +1,7 @@
     var idCliente=0;
+    var cliente='';
     var idVehiculo=0;
+    var vehiculo='';
     
     /* Campo de Busqueda de cliente  */
     $('#search').keyup(function() {
@@ -44,6 +46,7 @@
 
     function getVehiculos(id,nombre){
         idCliente=id;
+        cliente=nombre;
         $('#clienteNombre').html(nombre);
 
         fetch('/vehiculos/q/'+id, {
@@ -67,6 +70,7 @@
             let template='';
             let resp=data.vehiculos;
             resp.forEach(d => {
+                let vehi=d.placa+'-'+d.linea;
                 template+=`
                 <tr>
                     <td scope="col">${d.placa}</td>
@@ -74,8 +78,8 @@
                     <td scope="col">${d.color}</td>
                     <td scope="col">${d.linea}</td>
                     <td scope="col">${d.chasis}</td>
-                    <td scope="col"><a href="#" class="btn btn-info btn-circle btn-sm" >
-                        <i class="fas fa-edit"></i> Selectcionar
+                    <td scope="col"><a href="#" class="btn btn-info btn-circle btn-sm" onClick="selctVehiculo(${d.id},'${vehi}')" >
+                        <i class="fas fa-edit"></i> Seleccionar
                     </a></td>
                 </tr>
                 
@@ -85,6 +89,25 @@
             $('#lista2').html(template);
         });
     }
+
+    function selctVehiculo(id,vehi){
+        idVehiculo=id;
+        vehiculo=vehi;
+        console.log(id);
+
+        $('#card2').addClass('d-none');
+        $('#card3').removeClass('d-none');
+        $('#nomCliente').val(cliente);
+        $('#nomVehiculo').val(vehiculo);
+        $('#vehiculoId').val(idVehiculo);
+        $('#clienteId').val(idCliente);
+
+
+
+
+
+    }
+    
 
 
     $(document).on("click", ".listaClientes", function() {

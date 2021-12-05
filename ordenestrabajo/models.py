@@ -17,10 +17,10 @@ class OrdenTrabajo(models.Model):
             (Finalizado, 'Finalizado'),
         )
     CHOICES_REPACION = (
-            (MOTOR, 'Motor'),
-            (CARROCERIA, 'Carroceria'),
-            (ELECTRICO, 'Electrico'),
-            (HIDRAULICO, 'Hidraulico'),
+            (MOTOR,         'Motor'),
+            (CARROCERIA,    'Carroceria'),
+            (ELECTRICO,     'Electrico'),
+            (HIDRAULICO,    'Hidraulico'),
 
         )
     id=models.AutoField(primary_key=True)
