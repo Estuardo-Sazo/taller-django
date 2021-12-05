@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from vehiculos.models import Vehiculo
 from clientes.models import Cliente
+from django.http.response import JsonResponse
 
 from .forms import VehiculoForm
 
@@ -18,6 +19,12 @@ def list_vehiculos_clientes(requets,id):
         }
     )
 
+def get_vehiculos_clientes(requets,id):
+    vehiculos  =Vehiculo.objects.filter(cliente_id=id).values()
+    response={
+            'vehiculos':list(vehiculos)
+        }
+    return JsonResponse(response)
 
 
 def nuevo_vehiculo(request,idCliente):

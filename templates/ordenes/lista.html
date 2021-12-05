@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+
+{% block head_content %}
+    <title>Work Orders - Trabajo</title>
+{% endblock %}
+
+{% block container %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col">
+
+                    <h4 class="m-0 font-weight-bold text-primary">Lista de Ordenes de trabajo </h4>
+                </div>
+                <div class="col">                    
+                    <a href="{%url 'nueva_orden'%}" class="btn btn-success btn-icon-split float-right">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Nuevo Orden</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Placa</th>
+
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Linea</th>
+                            <th scope="col">No. Chasis</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th scope="col">Placa</th>
+
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Linea</th>
+                            <th scope="col">No. Chasis</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                    </tfoot>
+                    <tbody>
+                        
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}

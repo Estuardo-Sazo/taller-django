@@ -1,0 +1,109 @@
+{% extends "base2.html" %}
+
+{% block head_content %}
+    <title>Work Orders - Nueva Orden</title>
+{% endblock %}
+
+{% block container %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4" id="card1">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col">
+
+                    <h4 class="m-0 font-weight-bold text-primary">Selecionar Cliente</h4>
+                </div>
+                <div class="col">                    
+                    <a href="{%url 'ordenes'%}" class="btn btn-warning btn-icon-split float-right">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text">Volver</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                      <input type="text" name="search" id="search" class="form-control" placeholder="Buscar Cliente" >
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+            
+                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                    </thead>
+                    
+                    <tbody id="lista">
+                        
+                       
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card shadow mb-4 d-none" id="card2">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col">
+
+                    <h4 class="m-0 font-weight-bold text-primary">Selecionar un Vehiculo de <span id="clienteNombre"></span></h4>
+                </div>
+                <div class="col">                    
+                    <a href="#" class="btn btn-warning btn-icon-split float-right listaClientes">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text">Volver a clientes</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Placa</th>
+
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Linea</th>
+                            <th scope="col">No. Chasis</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                    </thead>
+                        
+                    <tbody id="lista2">
+                        
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
+
+
+{% block otros %}
+{% load static %}
+<script src="{% static 'js/main/new-orders.js' %}"></script>
+{% endblock %}
+
