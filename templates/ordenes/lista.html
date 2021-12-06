@@ -31,29 +31,44 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th scope="col">Placa</th>
+                            <th scope="col">#</th>
 
-                            <th scope="col">Modelo</th>
-                            <th scope="col">Color</th>
-                            <th scope="col">Linea</th>
-                            <th scope="col">No. Chasis</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col">Placa Vehículo</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Fecha Solicitud</th>
+                            <th scope="col">Tipo de Solicitud</th>
+                            <th scope="col">Estatus</th>
                           </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th scope="col">Placa</th>
+                            <th scope="col">#</th>
 
-                            <th scope="col">Modelo</th>
-                            <th scope="col">Color</th>
-                            <th scope="col">Linea</th>
-                            <th scope="col">No. Chasis</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col">Placa Vehículo</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Fecha Solicitud</th>
+                            <th scope="col">Tipo de Solicitud</th>
+                            <th scope="col">Estatus</th>
                           </tr>
                     </tfoot>
                     <tbody>
+                        {% for o in ordenes %}
                         
-                      </tbody>
+                        <tr>
+                          <th scope="row">{{o.id}}</th>
+                          
+                          <td>{{o.Vehiculo.placa}} </td>
+                          <td>{{o.cliente.nombre}} {{o.cliente.apellido}} </td>
+
+                          <td>{{o.created|date:'d/m/Y'}} </td>
+                          <td>{{o.tiporeparacion}}</td>
+                          <td>
+                            <span class="badge {% if o.estado == 'Nuevo' %} badge-info {% elif o.estado == 'En proceso'%}badge-warning {% else %} badge-success {% endif %} "><h6>{{o.estado}}</h6></span>
+                          </td>
+                          
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </div>

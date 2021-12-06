@@ -1,10 +1,12 @@
 from django.shortcuts import redirect, render
 from ordenestrabajo.models import OrdenTrabajo
+from vehiculos.models import Vehiculo
 from .forms import OrdenForm
 # Create your views here.
 
 def list_ordenes(requets):
-    ordenes =OrdenTrabajo.objects.all()
+    ordenes =OrdenTrabajo.objects.all().select_related('cliente').select_related('Vehiculo')
+   
     return render(requets,'ordenes/lista.html',{'ordenes':ordenes})
 
 def nueva_orden(request):
