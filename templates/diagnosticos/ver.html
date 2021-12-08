@@ -1,0 +1,128 @@
+{% extends "base2.html" %}
+
+{% block head_content %}
+    <title>Work Orders - Diagnosticos</title>
+{% endblock %}
+
+{% block container %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col">
+
+                    <h4 class="m-0 font-weight-bold text-primary">Orden de trabajo</h4>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for o in orden %}
+                <div class="col-6">
+                    <form>
+                        <div class="form-group">
+                          <label for="formGroupExampleInput">Dellate</label>
+                          <textarea class="form-control" aria-label="With textarea" disabled>{{o.detalle}}</textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="formGroupExampleInput2">Vehiculo</label>
+                          <input type="text" class="form-control" id="formGroupExampleInput2"  value="{{o.Vehiculo.placa}} - {{o.Vehiculo.linea}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Cliente</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2" value="{{o.cliente.nombre}} {{o.cliente.apellido}}" disabled>
+                          </div>
+                      </form>
+                </div>
+                <div class="col-6">
+                    <label for="formGroupExampleInput">Imagen </label>
+                        <img class="img" src="{{o.imagen.url}}" alt="">
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Diagnosticos -->
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col">
+
+                    <h4 class="m-0 font-weight-bold text-primary">Lista de Diagnosticos</h4>
+                </div>
+
+                <div class="col">                    
+                    <a href="#" class="btn btn-success btn-icon-split float-right">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Nuevo Diagnostico</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Estado</th>
+                            <th scope="col">No. Orden</th>
+
+                            <th scope="col">Vehículo</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Fecha Solicitud</th>
+                            <th scope="col">Tipo de Solicitud</th>
+                          </tr>
+                    </thead>
+                    
+                    <tbody>
+                       <!--  {% for o in ordenes %}
+                        
+                        <tr>
+                            <td>{% if o.estado == 'Nuevo' %}
+                            <a href="{%url 'ver-diagnostico' o.id%}" class="btn btn-warning btn-icon-split ">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="text">Iniciar</span>
+                                </a>
+                                {% elif o.estado == 'En Proceso'%}
+                                <a href="{%url 'ver-diagnostico' o.id%}" class="btn btn-info btn-icon-split ">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="text">Continuar</span>
+                                </a>
+                                {% else %} 
+                                <p class="text-success"><strong>Finalizado</strong></p>
+                                {% endif %} 
+                            </td>
+                          <th scope="row">{{o.id}}</th>
+                          
+                          <td>{{o.Vehiculo.placa}}-{{o.Vehiculo.linea}} </td>
+                          <td>{{o.cliente.nombre}} {{o.cliente.apellido}} </td>
+
+                          <td>{{o.created|date:'d/m/Y'}} </td>
+                          <td>{{o.tiporeparacion}}</td>
+                          
+                        </tr>
+                        {% endfor %} -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
