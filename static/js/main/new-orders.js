@@ -110,7 +110,13 @@
     
 
 
-    $(document).on("click", ".listaClientes", function() {
-        $('#card2').addClass('d-none');
-        $('#card1').removeClass('d-none');
-    })
+$(document).on("click", ".listaClientes", function () {
+    $('#card2').addClass('d-none');
+    $('#card1').removeClass('d-none');
+});
+
+$(document).on("click", "#addV", function() {
+    url = "/crear-vehiculos/" + idCliente;
+    console.log();
+    window.location.href = url;
+})
