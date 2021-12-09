@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from ordenestrabajo.models import OrdenTrabajo
 from diagnosticos.models import Diagnostico
 
+from .forms import DiagnosticoForm
+
 # Create your views here.
 def list_ordenes(requets):
     ordenes =OrdenTrabajo.objects.all().select_related('cliente').select_related('Vehiculo')
@@ -20,5 +22,21 @@ def get_diagnosticos(requets,id):
         context={
             'orden':orden,
             'diagnosticos':diagnosticos
+        }
+    )
+
+def nuevo_diagnostico(request,id):
+    orden =OrdenTrabajo.objects.filter(id=id).select_related('cliente').select_related('Vehiculo')
+    
+    formulario = DiagnosticoForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('ver-diagnostico',id=id)
+    return render(
+        request=request,
+        template_name='diagnosticos/crear.html',
+        context={
+            'orden':orden,
+            'id':id
         }
     )

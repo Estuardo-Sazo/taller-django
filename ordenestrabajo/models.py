@@ -41,6 +41,7 @@ class OrdenTrabajo(models.Model):
     )
 
     imagen=models.ImageField(upload_to='imagenes/vehiculo/', verbose_name='Imagen',null=True)
+    
     cliente=models.ForeignKey(Cliente,null=True,blank=True,on_delete=models.CASCADE)
     Vehiculo=models.ForeignKey(Vehiculo,null=True,blank=True,on_delete=models.CASCADE)
 

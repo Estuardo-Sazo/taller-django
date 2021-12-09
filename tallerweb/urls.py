@@ -26,6 +26,8 @@ urlpatterns = [
     path('nueva-orden/',ordens_views.nueva_orden ,name='nueva_orden'),
 
     path('diagnosticos/',diagnosticos_views.list_ordenes ,name='diagnosticos'),
+    path('diagnosticos-add/<int:id>',diagnosticos_views.nuevo_diagnostico ,name='nuevo_diagnostico'),
+
     path('diagnosticos-ver/<int:id>',diagnosticos_views.get_diagnosticos ,name='ver-diagnostico'),
 
 

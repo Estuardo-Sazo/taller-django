@@ -1,0 +1,87 @@
+{% extends "base2.html" %}
+
+{% block head_content %}
+    <title>Work Orders - Vehiculos</title>
+{% endblock %}
+
+{% block container %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col">
+
+                    <h4 class="m-0 font-weight-bold text-primary">Agregar Diagnostico</h4>
+                </div>
+                <div class="col">                    
+                    <a href="{%url 'clientes'%}" class="btn btn-warning btn-icon-split float-right">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text">Volver</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <form  method="post">
+                        {% csrf_token%}
+
+                        <div class="form-group">
+                         <label for="" class="form-label">Categoría:</label>
+
+                           
+
+                            <select name="categoria" class="form-control {% if formulario.categoria.errors %}is-invalid{% endif %}">
+                                <option value="MOTOR">Motor</option>
+                                <option value="CARROCERIA">Carroceria</option>
+                                <option value="ELECTRICO">Electrico</option>
+                                <option value="HIDRAULICO">Hidraulico</option>
+        
+                            </select>
+                            <div class="invalid-feedback">
+                                {% for error in formulario.categoria.errors %}{{ error }}{% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                              <label for="" class="form-label">Opción:</label>
+
+                            <input
+                                class="form-control {% if formulario.opcion.errors %}is-invalid{% endif %}"
+                                type="text"
+                                name="opcion"
+                                placeholder="Opción"
+                            >
+                            <div class="invalid-feedback">
+                                {% for error in formulario.opcion.errors %}{{ error }}{% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                         <label for="" class="form-label">Detalle:</label>
+                            
+                          <textarea class="form-control {% if formulario.detalle.errors %}is-invalid{% endif %}" aria-label="With textarea" name="detalle"></textarea>
+                          
+                            <div class="invalid-feedback">
+                                {% for error in formulario.detalle.errors %}{{ error }}{% endfor %}
+                            </div>
+                        </div>
+                      
+                    <input type="hidden" id="clienteId" name="orden"  value="{{id}}" />
+                      
+                          <input name="" id="" class="btn btn-success" type="submit" value="Agregar Diagnostico">
+                          <a name="" id="" class="btn btn-warning" href="{%url 'ver-diagnostico' id%}" role="button">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
