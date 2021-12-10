@@ -3,8 +3,8 @@ from ordenestrabajo.models import OrdenTrabajo
 from diagnosticos.models import Diagnostico
 
 from .forms import DiagnosticoForm
+# consulta de ordenes de trabajo baso en la relacion cliente vehiculo
 
-# Create your views here.
 def list_ordenes(requets):
     ordenes =OrdenTrabajo.objects.all().select_related('cliente').select_related('Vehiculo')
    
@@ -32,7 +32,10 @@ def nuevo_diagnostico(request,id):
     if formulario.is_valid():
         formulario.save()
         return redirect('ver-diagnostico',id=id)
+    
+   # renderiza la vista en el navegador
     return render(
+         # enviar variables a la vista html
         request=request,
         template_name='diagnosticos/crear.html',
         context={
