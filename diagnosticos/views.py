@@ -14,6 +14,7 @@ def get_diagnosticos(requets,id):
     orden =OrdenTrabajo.objects.filter(id=id).select_related('cliente').select_related('Vehiculo')
     diagnosticos  =Diagnostico.objects.filter(orden_id=id)
     print(orden)
+   
     print(diagnosticos)
 
     return render(
