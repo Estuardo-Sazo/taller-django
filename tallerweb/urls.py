@@ -10,7 +10,7 @@ from tallerweb import views as local_views
 from django.conf import settings
 from django.contrib.staticfiles.urls import static
 
-
+# Rutas de la aplicacion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
